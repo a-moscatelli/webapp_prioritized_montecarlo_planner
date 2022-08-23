@@ -1,0 +1,26 @@
+streams:
+- stream: current job
+  weight: 0.95
+  when: D<=5 AND (H>=9 AND H<18 AND H != 13)
+- stream: find new job
+  weight: 0.2
+  when: (H<9 OR H>20) OR D>=6 OR H==13
+- stream: readings
+  weight: 0.1
+  when: H<9 OR H>20 OR D>=6 OR (H>=13 AND H<14)
+  sequence:
+  - {project: Don Quixote -Cervantes, ETC: (575-10)/27} # 565pp @ 27pp/hour
+  - {project: Meister -Goethe,        ETC: (545)/27}    # 545pp @ 27pp/hour
+- stream: family time
+  weight: 0.1
+  when: H>19 OR D>=6
+- stream: breakfast-lunch-dinner
+  weight: 0.9
+  when: H==13 OR H==19
+- stream: relax
+  weight: 0.25
+  when: H>=20 OR D>=6
+- stream: fitness-sports-body
+  weight: 0.1
+  when: H>=21 OR H<8 OR D>=6
+# config: {when: H>=7 AND H<23, start: !!timestamp '2020-12-11T10:59:32.637Z', last: !!timestamp '2021-06-09T10:59:32.637Z'}

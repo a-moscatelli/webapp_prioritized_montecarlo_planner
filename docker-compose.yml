@@ -1,0 +1,32 @@
+version: "3.3"
+# A network called g4hab_default (bridge) is created.       ... https://docs.docker.com/compose/networking/
+# A container is created using mongo’s configuration. It joins the network g4hab_default under the name web.
+# A container is created using grails’s configuration. It joins the network g4hab_default under the name db.
+# Each container can now look up the hostname web or db and get back the appropriate container’s IP address.
+# For example, web’s application code could connect to the URL postgres://db:5432 and start using the Postgres database.
+services:
+  mongo:
+    container_name: mongo_mg
+    restart: always
+    build: .
+    expose:
+    - "27017"
+    image: "mongo:4.4.2"
+    volumes:
+    - "/home/ec2-user/vol/mongo:/data/db"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mgadmin
+      MONGO_INITDB_ROOT_PASSWORD: $mgpwd
+      MONGO_INITDB_DATABASE: database1
+
+  grails:
+    container_name: grails1
+    build: .
+    ports:
+    - "80:8080"
+    depends_on:
+    - mongo
+    #... depends_on is about start sequence, not network layers
+    image: "registry.alberto-moscatelli.name/g4hab:latest"
+    environment:
+      MG_MONGO_ATLAS: "mongodb://mgadmin:$mgpwd@mongo:27017/?authSource=admin"
