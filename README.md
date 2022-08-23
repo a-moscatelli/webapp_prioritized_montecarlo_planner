@@ -7,7 +7,7 @@ tech-stack:
 * grails 4 + groovy JVM
 * mongodb
 
-docker
+{docker}
 
 online demo:
 http://planner.alberto-moscatelli.name/
