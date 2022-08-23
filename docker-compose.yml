@@ -16,7 +16,7 @@ services:
     - "/home/ec2-user/vol/mongo:/data/db"
     environment:
       MONGO_INITDB_ROOT_USERNAME: mgadmin
-      MONGO_INITDB_ROOT_PASSWORD: $mgpwd
+      MONGO_INITDB_ROOT_PASSWORD: ${mgpwd}
       MONGO_INITDB_DATABASE: database1
 
   grails:
@@ -29,4 +29,4 @@ services:
     #... depends_on is about start sequence, not network layers
     image: "registry.alberto-moscatelli.name/g4hab:latest"
     environment:
-      MG_MONGO_ATLAS: "mongodb://mgadmin:$mgpwd@mongo:27017/?authSource=admin"
+      MG_MONGO_ATLAS: "mongodb://mgadmin:${mgpwd}@mongo:27017/?authSource=admin"

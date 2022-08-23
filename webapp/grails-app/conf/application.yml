@@ -140,7 +140,7 @@ environments:
         grails:
             mongodb:
                 url: ${MG_MONGO_ATLAS}
-                sample_url: mongodb+srv://mguser112:dBsBxxxxxxxxxLA@cluster0.spk8v.mongodb.net/habit?retryWrites=true&w=majority
+                sample_url: mongodb+srv://mguser112:mongopassword@cluster0.spk8v.mongodb.net/habit?retryWrites=true&w=majority
     production:
         grails:
             mongodb:
