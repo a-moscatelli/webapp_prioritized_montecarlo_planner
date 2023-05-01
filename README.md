@@ -2,12 +2,6 @@
 
 ### data entry + reporting + time contraints & priorities
 
-tech-stack:
-* webix.js
-* grails 4 + groovy JVM
-* mongodb
+details and online demo:
+https://www.a-moscatelli.info/e/en/online-apps
 
-{docker}
-
-online demo:
-http://planner.alberto-moscatelli.name/
