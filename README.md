@@ -3,5 +3,6 @@
 ### data entry + reporting + time contraints & priorities
 
 details and online demo:
-https://www.a-moscatelli.info/e/en/online-apps
+https://www.a-moscatelli.info/cookbook/app-planner
+
 
